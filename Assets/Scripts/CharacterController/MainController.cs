@@ -7,7 +7,7 @@ using UnityEngine;
 public class MainController : MonoBehaviour
 {
     public float walkSpeed = 6f;
-    public float runMultiplier = 1.2f;
+    public float runMultiplier = 1.25f;
     public float jumpSpeed = 7.0f;
     public float gravity = 23.0f;
     public float lookSpeed = 2.0f;
