@@ -19,7 +19,7 @@ public class GunProjectile : MonoBehaviour
 
     public Camera fpsCam;
     public Transform attackPoint;
-
+    public GameObject gunObject;
     public GameObject muzzleFlash;
     public TextMeshProUGUI ammunitionDisplay;
 
@@ -34,7 +34,6 @@ public class GunProjectile : MonoBehaviour
     void Update()
     {
         ShootInput();
-
         if (ammunitionDisplay != null)
         {
             ammunitionDisplay.SetText(bulletsLeft / bulletPerTap + " / " + magazineSize / bulletPerTap);
@@ -128,6 +127,9 @@ public class GunProjectile : MonoBehaviour
     private void Reload()
     {
         reloading = true;
+        Animator anm = GetComponent<Animator>();
+        anm.SetFloat("SpeedMultiplier",(1/reloadTime));
+        anm.Play("SimpleReload", -1, 0f);
         Invoke("ReloadFinished", reloadTime);
     }
 
